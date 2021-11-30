@@ -1,8 +1,20 @@
-import System.Environment
-import Data.List
+import System.Environment (getArgs)
+
+import Util (Solution)
+
+solution :: Int -> Solution
+solution _ = return ("Not implemented", "Not implemented")
 
 main :: IO ()
 main = do
     args <- getArgs
-    putStrLn "The args are: "
-    mapM_ putStrLn args
+    run args
+        where
+            usage = "Usage: stack run advent 1"
+            run [] = print usage
+            run [x] = do
+                let day = read x :: Int
+                (part1, part2) <- solution day
+                print $ "Part1: " ++ part1
+                print $ "Part2: " ++ part2
+            run _ = print usage
