@@ -1,0 +1,12 @@
+name: advent
+version: 1.0.0
+github: dpca/advent-of-code-2021
+license: MIT
+author: Dan Cahoon
+
+dependencies:
+  - base >= 4.7 && < 5
+
+executable:
+  main: Main.hs
+  source-dirs: src
