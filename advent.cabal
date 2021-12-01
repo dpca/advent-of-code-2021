@@ -21,6 +21,8 @@ source-repository head
 executable advent
   main-is: Main.hs
   other-modules:
+      Day01
+      Util
       Paths_advent
   hs-source-dirs:
       src
