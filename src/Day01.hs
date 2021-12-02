@@ -1,7 +1,5 @@
 module Day01 (solution) where
 
-import Data.List
-
 import Util (Solution)
 
 part1 :: [Int] -> Int -> Int

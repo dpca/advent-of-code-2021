@@ -1,9 +1,7 @@
 module Day02 (solution) where
 
-import Data.List
 import Text.Parsec
 import Text.Parsec.String
-import Control.Monad
 
 import Util (Solution, parseIt)
 
