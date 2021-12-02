@@ -6,6 +6,7 @@ author: Dan Cahoon
 
 dependencies:
   - base >= 4.7 && < 5
+  - parsec
 
 executable:
   main: Main.hs
