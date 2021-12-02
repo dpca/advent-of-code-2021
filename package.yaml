@@ -11,3 +11,12 @@ dependencies:
 executable:
   main: Main.hs
   source-dirs: src
+
+tests:
+  unit:
+    main: Spec.hs
+    source-dirs:
+      - src
+      - test
+    dependencies:
+      - hspec
