@@ -23,19 +23,21 @@ part1 input = binaryToDecimal gamma * binaryToDecimal epsilon
     where gamma = getGamma input
           epsilon = getEpsilon gamma
 
+-- filter with either gamma or epsilon
+filterWithMatcher :: Binary -> Int -> [Binary] -> [Binary]
+filterWithMatcher matcher position = filter (\x -> x !! position == matcher !! position)
+
 getOxygen :: [Binary] -> Binary
 getOxygen = _getOxygen 0
     where _getOxygen _ [x] = x
-          _getOxygen iter lst = _getOxygen (iter + 1) $ filterMostCommonAtPosition iter lst
-              where filterMostCommonAtPosition iter lst = filter (\x -> x !! iter == gamma !! iter) lst
-                    gamma = getGamma lst
+          _getOxygen pos lst = _getOxygen (pos + 1) $ filterWithMatcher gamma pos lst
+              where gamma = getGamma lst
 
 getCo2 :: [Binary] -> Binary
 getCo2 = _getCo2 0
     where _getCo2 _ [x] = x
-          _getCo2 iter lst = _getCo2 (iter + 1) $ filterLeastCommonAtPosition iter lst
-              where filterLeastCommonAtPosition iter lst = filter (\x -> x !! iter == epsilon !! iter) lst
-                    gamma = getGamma lst
+          _getCo2 pos lst = _getCo2 (pos + 1) $ filterWithMatcher epsilon pos lst
+              where gamma = getGamma lst
                     epsilon = getEpsilon gamma
 
 
