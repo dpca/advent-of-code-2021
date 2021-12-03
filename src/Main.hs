@@ -3,10 +3,12 @@ import System.Environment (getArgs)
 import Util (Solution)
 import qualified Day01
 import qualified Day02
+import qualified Day03
 
 solution :: Int -> Solution
 solution 1 = Day01.solution
 solution 2 = Day02.solution
+solution 3 = Day03.solution
 solution _ = return ("Not implemented", "Not implemented")
 
 main :: IO ()

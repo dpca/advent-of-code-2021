@@ -23,6 +23,7 @@ executable advent
   other-modules:
       Day01
       Day02
+      Day03
       Util
       Paths_advent
   hs-source-dirs:
@@ -38,6 +39,7 @@ test-suite unit
   other-modules:
       Day01
       Day02
+      Day03
       Main
       Util
       Paths_advent
