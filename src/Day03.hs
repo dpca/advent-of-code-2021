@@ -23,23 +23,17 @@ part1 input = binaryToDecimal gamma * binaryToDecimal epsilon
     where gamma = getGamma input
           epsilon = getEpsilon gamma
 
--- filter with either gamma or epsilon
-filterWithMatcher :: Binary -> Int -> [Binary] -> [Binary]
-filterWithMatcher matcher position = filter (\x -> x !! position == matcher !! position)
+getBinaryFromMatcher :: ([Binary] -> Binary) -> [Binary] -> Binary
+getBinaryFromMatcher = getBin 0
+    where getBin _ _ [x] = x
+          getBin pos matcher lst = getBin (pos + 1) matcher $ filterWithMatcher (matcher lst) pos lst
+          filterWithMatcher matcher position = filter (\x -> x !! position == matcher !! position)
 
 getOxygen :: [Binary] -> Binary
-getOxygen = _getOxygen 0
-    where _getOxygen _ [x] = x
-          _getOxygen pos lst = _getOxygen (pos + 1) $ filterWithMatcher gamma pos lst
-              where gamma = getGamma lst
+getOxygen = getBinaryFromMatcher getGamma
 
 getCo2 :: [Binary] -> Binary
-getCo2 = _getCo2 0
-    where _getCo2 _ [x] = x
-          _getCo2 pos lst = _getCo2 (pos + 1) $ filterWithMatcher epsilon pos lst
-              where gamma = getGamma lst
-                    epsilon = getEpsilon gamma
-
+getCo2 = getBinaryFromMatcher (getEpsilon . getGamma)
 
 part2 :: [Binary] -> Int
 part2 input = binaryToDecimal oxygenRating * binaryToDecimal co2ScrubberRating
