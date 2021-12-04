@@ -4,7 +4,6 @@ import Data.List
 import Text.Parsec
 import Text.Parsec.String
 import Data.List.Split (splitOn, chunksOf)
-import Debug.Trace (trace)
 
 import Util (Solution, parseIt)
 
@@ -34,14 +33,14 @@ playBingo (x:xs) boards =
     case find boardHasWon markedBoards of
       Just board -> (x, board)
       Nothing -> playBingo xs markedBoards
-    where markedBoards = map (map (map (\(num, seen) -> (num, num == x || seen)))) boards
+    where markedBoards = map (map (map (\(num, seen) -> (num, seen || num == x)))) boards
           wonBoard = find boardHasWon markedBoards
 playBingo _ boards = error "Nobody has won"
 
 playBingoUntilLastBoard :: [Int] -> [Board] -> (Int, Board)
 playBingoUntilLastBoard nums [board] = playBingo nums [board]
 playBingoUntilLastBoard (x:xs) boards = playBingoUntilLastBoard xs filteredBoards
-    where markedBoards = map (map (map (\(num, seen) -> (num, num == x || seen)))) boards
+    where markedBoards = map (map (map (\(num, seen) -> (num, seen || num == x)))) boards
           filteredBoards = filter (not. boardHasWon) markedBoards
 playBingoUntilLastBoard _ boards = error "Nobody has won"
 
