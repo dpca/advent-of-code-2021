@@ -11,4 +11,6 @@ parseIt p x = case parse p "" x of
                 Right res -> res
 
 parseFile :: Parser b -> FilePath -> IO b
-parseFile p f = readFile f >>= \f -> return (parseIt p f)
+parseFile parser filename = do
+    contents <- readFile filename
+    return (parseIt parser contents)
