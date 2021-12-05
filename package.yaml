@@ -8,6 +8,7 @@ dependencies:
   - base >= 4.7 && < 5
   - parsec
   - split
+  - containers
 
 executable:
   main: Main.hs
