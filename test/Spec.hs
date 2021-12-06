@@ -5,6 +5,7 @@ import qualified Day02
 import qualified Day03
 import qualified Day04
 import qualified Day05
+import qualified Day06
 
 main :: IO ()
 main = hspec $ do
@@ -47,3 +48,14 @@ main = hspec $ do
             (part1, part2) <- Day05.solution
             part1 `shouldBe` "4745"
             part2 `shouldBe` "18442"
+
+    describe "Day 6" $ do
+        it "correctly solves the example" $ do
+            (part1, part2) <- Day06.example
+            part1 `shouldBe` "5934"
+            part2 `shouldBe` "26984457539"
+
+        it "correctly solves the puzzle" $ do
+            (part1, part2) <- Day06.solution
+            part1 `shouldBe` "358214"
+            part2 `shouldBe` "1622533344325"
