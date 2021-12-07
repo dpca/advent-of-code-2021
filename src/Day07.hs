@@ -4,7 +4,6 @@ import Util (Solution, parseFile)
 
 import Text.Parsec
 import Text.Parsec.String
-import Data.List
 
 inputParser :: Parser [Int]
 inputParser = map read <$> sepBy (many1 digit) (char ',') <* newline
