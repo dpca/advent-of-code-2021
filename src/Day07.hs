@@ -1,4 +1,4 @@
-module Day07 (solution, example, minFuel) where
+module Day07 (solution, example) where
 
 import Util (Solution, parseFile)
 
