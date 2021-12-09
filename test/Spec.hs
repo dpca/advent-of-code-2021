@@ -80,6 +80,6 @@ main = hspec $ do
             part2 `shouldBe` "61229"
 
         it "correctly solves the puzzle" $ do
-            (part1, part2) <- Day07.solution
+            (part1, part2) <- Day08.solution
             part1 `shouldBe` "255"
             part2 `shouldBe` "982158"
