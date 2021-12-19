@@ -30,6 +30,7 @@ executable advent
       Day07
       Day08
       Day09
+      Day10
       Util
       Paths_advent
   hs-source-dirs:
@@ -54,6 +55,7 @@ test-suite unit
       Day07
       Day08
       Day09
+      Day10
       Main
       Util
       Paths_advent
