@@ -11,6 +11,7 @@ import qualified Day07
 import qualified Day08
 import qualified Day09
 import qualified Day10
+import qualified Day11
 
 solution :: Int -> Solution
 solution 1 = Day01.solution
@@ -23,6 +24,7 @@ solution 7 = Day07.solution
 solution 8 = Day08.solution
 solution 9 = Day09.solution
 solution 10 = Day10.solution
+solution 11 = Day11.solution
 solution _ = return ("Not implemented", "Not implemented")
 
 main :: IO ()
